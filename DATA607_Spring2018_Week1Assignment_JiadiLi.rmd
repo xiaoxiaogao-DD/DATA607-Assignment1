@@ -1,0 +1,103 @@
+#MSDS Spring 2018 
+##DATA 607 Data Aquisition and Management
+####Jiadi Li
+####Week 1 Assignment: Basic Loading and Transformation
+
+###Task: Create a data frame with a subset of the columns in the dataset. Add meaningful column names and replace the abbreviations.
+
+1. Place the file in Github and load the data.
+```{r}
+Mushroom <- read.csv("https://raw.githubusercontent.com/xiaoxiaogao-DD/Spring2018_DATA607_Assignment1/master/mushroom.csv",header = FALSE)
+summary(Mushroom)
+```
+
+2. Subset and rename column
+```{r}
+Mushroom_cap <- subset(Mushroom,select = c(V2,V3,V4,V1))
+colnames(Mushroom_cap)[1] <- "shape"
+colnames(Mushroom_cap)[2] <- "surface"
+colnames(Mushroom_cap)[3] <- "color"
+colnames(Mushroom_cap)[4] <- "classes"
+summary(Mushroom_cap)
+```
+3. Rename attributes for classes
+```{r}
+Mushroom_cap$classes <- as.character(Mushroom_cap$classes)
+Mushroom_cap$classes[Mushroom_cap$classes=="e"]<- "edible"
+Mushroom_cap$classes[Mushroom_cap$classes=="p"]<- "poisoneous"
+Mushroom_cap$classes <- as.factor(Mushroom_cap$classes)
+```
+
+4. Rename attributes for shape
+```{r}
+Mushroom_cap$shape <- as.character(Mushroom_cap$shape)
+Mushroom_cap$shape[Mushroom_cap$shape=="b"]<- "bell"
+Mushroom_cap$shape[Mushroom_cap$shape=="c"]<- "conical"
+Mushroom_cap$shape[Mushroom_cap$shape=="f"]<- "flat"
+Mushroom_cap$shape[Mushroom_cap$shape=="k"]<- "knobbed"
+Mushroom_cap$shape[Mushroom_cap$shape=="s"]<- "sunken"
+Mushroom_cap$shape[Mushroom_cap$shape=="x"]<- "convex"
+Mushroom_cap$shape <- as.factor(Mushroom_cap$shape)
+```
+
+5. Rename surface
+```{r}
+Mushroom_cap$surface <- as.character(Mushroom_cap$surface)
+Mushroom_cap$surface[Mushroom_cap$surface=="f"]<- "fibrous"
+Mushroom_cap$surface[Mushroom_cap$surface=="g"]<- "grooves"
+Mushroom_cap$surface[Mushroom_cap$surface=="s"]<- "smooth"
+Mushroom_cap$surface[Mushroom_cap$surface=="y"]<- "scaly"
+Mushroom_cap$surface <- as.factor(Mushroom_cap$surface)
+```
+
+6. Rename color
+```{r}
+Mushroom_cap$color <- as.character(Mushroom_cap$color)
+Mushroom_cap$color[Mushroom_cap$color=="n"]<- "brown"
+Mushroom_cap$color[Mushroom_cap$color=="g"]<- "gray"
+Mushroom_cap$color[Mushroom_cap$color=="e"]<- "red"
+Mushroom_cap$color[Mushroom_cap$color=="y"]<- "yellow"
+Mushroom_cap$color[Mushroom_cap$color=="w"]<- "white"
+Mushroom_cap$color[Mushroom_cap$color=="b"]<- "buff"
+Mushroom_cap$color <- as.factor(Mushroom_cap$color)
+summary(Mushroom_cap)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
